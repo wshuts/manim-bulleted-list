@@ -11,7 +11,6 @@ class BulletedListNewModel(MovingCameraScene):
         super().__init__(camera_class)
         self.frame = self.camera.frame
         self.number_plane = NumberPlane()
-        self.title = None
         self.dot = None
 
     def setup(self):
