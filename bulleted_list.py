@@ -26,9 +26,6 @@ class BulletedListScriptStyle(MovingCameraScene):
 
     # noinspection PyTypeChecker
     def construct(self):
-        self.play(
-            self.camera.frame.animate.set_width(26).move_to(2.2 * LEFT + 8 * DOWN)
-        )
         # Title
         title_properties = Text("Example Networks", color=YELLOW)
         title_properties.scale(1.2)
