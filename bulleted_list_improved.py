@@ -27,33 +27,33 @@ class BulletedListImproved(MovingCameraScene):
     # noinspection PyTypeChecker
     def construct(self):
         # Title
-        title = Text("Example Networks", color=YELLOW)
-        title.scale(1.2)
-        title.to_edge(UP).shift(LEFT * 0 + DOWN * 0)
+        self.title = Text("Example Networks", color=YELLOW)
+        self.title.scale(1.2)
+        self.title.to_edge(UP).shift(LEFT * 0 + DOWN * 0)
 
         # Title underline
-        underline = Line(LEFT, RIGHT, color=YELLOW)
-        underline.width = 1.1 * title.width
-        underline.next_to(title, DOWN)
-        underline.shift(UP * 0.1)
+        self.underline = Line(LEFT, RIGHT, color=YELLOW)
+        self.underline.width = 1.1 * self.title.width
+        self.underline.next_to(self.title, DOWN)
+        self.underline.shift(UP * 0.1)
 
-        self.play(FadeIn(title, shift=LEFT), GrowFromCenter(underline))
+        self.play(FadeIn(self.title, shift=LEFT), GrowFromCenter(self.underline))
         self.wait(3)
 
-        networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
-                       "Amplifiers")  # , height=5, width=5, dot_scale_factor=3.5)
-        for network in networks:
+        self.networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
+                            "Amplifiers")  # , height=5, width=5, dot_scale_factor=3.5)
+        for network in self.networks:
             dot = MathTex("\\cdot").scale(3)
             dot.next_to(network[0], LEFT * 0.4, buff=0.4)
             network.add_to_back(dot)
-        networks.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
-        # networks.set_color_by_tex("Antennas", WHITE)
+        self.networks.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
+        # self.networks.set_color_by_tex("Antennas", WHITE)
 
-        networks.scale(1.45)
-        networks.next_to(underline, DOWN)
-        networks.set_opacity(0.5)
-        self.play(Write(networks))
-        self.play(networks.submobjects[0].animate.set_opacity(1))
+        self.networks.scale(1.45)
+        self.networks.next_to(self.underline, DOWN)
+        self.networks.set_opacity(0.5)
+        self.play(Write(self.networks))
+        self.play(self.networks.submobjects[0].animate.set_opacity(1))
 
 
 with tempconfig(
