@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>bulleted_list_script_style.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #080808;}
+.s1 { color: #0033b3;}
+.s2 { color: #8c8c8c; font-style: italic;}
+.s3 { color: #1750eb;}
+.s4 { color: #067d17;}
+.s5 { color: #0037a6;}
+.ln { color: #adadad; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+bulleted_list_script_style.py</font>
+</center></td></tr></table>
+<pre>    <span class="s1">def </span><span class="s0">setup(self):</span>
+<a name="l5"><span class="ln">5    </span></a>        <span class="s0">MovingCameraScene.setup(self)</span>
+<a name="l6"><span class="ln">6    </span></a>
+<a name="l7"><span class="ln">7    </span></a>    <span class="s2"># noinspection PyTypeChecker</span>
+<a name="l8"><span class="ln">8    </span></a>    <span class="s1">def </span><span class="s0">construct(self):</span>
+<a name="l9"><span class="ln">9    </span></a>        <span class="s0">self.play(</span>
+<a name="l10"><span class="ln">10   </span></a>            <span class="s0">self.camera.frame.animate.set_width(</span><span class="s3">26</span><span class="s0">).move_to(</span><span class="s3">2.2 </span><span class="s0">* LEFT + </span><span class="s3">8 </span><span class="s0">* DOWN)</span>
+<a name="l11"><span class="ln">11   </span></a>        <span class="s0">)</span></pre>
+</body>
+</html>
