@@ -7,6 +7,15 @@ FRAME_WIDTH = 2 * DEFAULT_WIDTH
 
 
 class BulletedListScriptStyle(MovingCameraScene):
+    def __init__(self, camera_class=MovingCamera):
+        super().__init__(camera_class)
+        self.frame = self.camera.frame
+        self.number_plane = NumberPlane()
+        self.title = None
+        self.underline = None
+        self.networks = None
+        self.title_group = None
+
     def setup(self):
         MovingCameraScene.setup(self)
 
