@@ -18,6 +18,11 @@ class BulletedListScriptStyle(MovingCameraScene):
 
     def setup(self):
         MovingCameraScene.setup(self)
+        self.frame.width = FRAME_WIDTH
+        self.frame.move_to(PAN_CAMERA_LEFT * LEFT + PAN_CAMERA_DOWN * DOWN)
+        # self.add(self.number_plane)
+        self.number_plane.width = FRAME_WIDTH
+        self.number_plane.move_to(PAN_CAMERA_LEFT * LEFT + PAN_CAMERA_DOWN * DOWN)
 
     # noinspection PyTypeChecker
     def construct(self):
