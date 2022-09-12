@@ -1,5 +1,10 @@
 from manim import *
 
+PAN_CAMERA_DOWN = 0
+PAN_CAMERA_LEFT = 0
+DEFAULT_WIDTH = 8 * (16 / 9)
+FRAME_WIDTH = 2 * DEFAULT_WIDTH
+
 
 class BulletedListScriptStyle(MovingCameraScene):
     def setup(self):
