@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>bulleted_list_new_model.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #1750eb;}
+.s3 { color: #067d17;}
+.ln { color: #adadad; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+bulleted_list_new_model.py</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">from </span><span class="s1">manim </span><span class="s0">import </span><span class="s1">*</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s1">PAN_CAMERA_DOWN = </span><span class="s2">0</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s1">PAN_CAMERA_LEFT = </span><span class="s2">0</span>
+<a name="l5"><span class="ln">5    </span></a><span class="s1">DEFAULT_WIDTH = </span><span class="s2">8 </span><span class="s1">* (</span><span class="s2">16 </span><span class="s1">/ </span><span class="s2">9</span><span class="s1">)</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s1">FRAME_WIDTH = </span><span class="s2">2 </span><span class="s1">* DEFAULT_WIDTH</span>
+<a name="l7"><span class="ln">7    </span></a>
+<a name="l8"><span class="ln">8    </span></a>
+<a name="l9"><span class="ln">9    </span></a><span class="s0">class </span><span class="s1">BulletedListNewModel(MovingCameraScene):</span>
+<a name="l10"><span class="ln">10   </span></a>    <span class="s0">def </span><span class="s1">__init__(self, camera_class=MovingCamera):</span>
+<a name="l11"><span class="ln">11   </span></a>        <span class="s1">super().__init__(camera_class)</span>
+<a name="l12"><span class="ln">12   </span></a>        <span class="s1">self.frame = self.camera.frame</span>
+<a name="l13"><span class="ln">13   </span></a>        <span class="s1">self.number_plane = NumberPlane()</span>
+<a name="l14"><span class="ln">14   </span></a>
+<a name="l15"><span class="ln">15   </span></a>    <span class="s0">def </span><span class="s1">setup(self):</span>
+<a name="l16"><span class="ln">16   </span></a>        <span class="s1">MovingCameraScene.setup(self)</span>
+<a name="l17"><span class="ln">17   </span></a>        <span class="s1">self.frame.width = FRAME_WIDTH</span>
+<a name="l18"><span class="ln">18   </span></a>        <span class="s1">self.frame.move_to(PAN_CAMERA_LEFT * LEFT + PAN_CAMERA_DOWN * DOWN)</span>
+<a name="l19"><span class="ln">19   </span></a>        <span class="s1">self.add(self.number_plane)</span>
+<a name="l20"><span class="ln">20   </span></a>        <span class="s1">self.number_plane.width = FRAME_WIDTH</span>
+<a name="l21"><span class="ln">21   </span></a>        <span class="s1">self.number_plane.move_to(PAN_CAMERA_LEFT * LEFT + PAN_CAMERA_DOWN * DOWN)</span></pre>
+</body>
+</html>
