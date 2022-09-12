@@ -6,7 +6,7 @@ DEFAULT_WIDTH = 8 * (16 / 9)
 FRAME_WIDTH = 2 * DEFAULT_WIDTH
 
 
-class BulletedListScriptStyle(MovingCameraScene):
+class BulletedListImproved(MovingCameraScene):
     def __init__(self, camera_class=MovingCamera):
         super().__init__(camera_class)
         self.frame = self.camera.frame
@@ -27,17 +27,17 @@ class BulletedListScriptStyle(MovingCameraScene):
     # noinspection PyTypeChecker
     def construct(self):
         # Title
-        title_properties = Text("Example Networks", color=YELLOW)
-        title_properties.scale(1.2)
-        title_properties.to_edge(UP).shift(LEFT * 11 + DOWN * 5)
+        title = Text("Example Networks", color=YELLOW)
+        title.scale(1.2)
+        title.to_edge(UP).shift(LEFT * 0 + DOWN * 0)
 
         # Title underline
-        underline_properties = Line(LEFT, RIGHT, color=YELLOW)
-        underline_properties.width = 1.1 * title_properties.width
-        underline_properties.next_to(title_properties, DOWN)
-        underline_properties.shift(UP * 0.1)
+        underline = Line(LEFT, RIGHT, color=YELLOW)
+        underline.width = 1.1 * title.width
+        underline.next_to(title, DOWN)
+        underline.shift(UP * 0.1)
 
-        self.play(FadeIn(title_properties, shift=LEFT), GrowFromCenter(underline_properties))
+        self.play(FadeIn(title, shift=LEFT), GrowFromCenter(underline))
         self.wait(3)
 
         networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
@@ -50,7 +50,7 @@ class BulletedListScriptStyle(MovingCameraScene):
         # networks.set_color_by_tex("Antennas", WHITE)
 
         networks.scale(1.45)
-        networks.shift(LEFT * 11.4 + DOWN * 6.1)
+        networks.next_to(underline, DOWN)
         networks.set_opacity(0.5)
         self.play(Write(networks))
         self.play(networks.submobjects[0].animate.set_opacity(1))
@@ -58,5 +58,5 @@ class BulletedListScriptStyle(MovingCameraScene):
 
 with tempconfig(
         {"quality": "high_quality", "preview": True, "disable_caching": False, "from_animation_number": 0}):
-    scene = BulletedListScriptStyle()
+    scene = BulletedListImproved()
     scene.render()
