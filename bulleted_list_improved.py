@@ -26,12 +26,10 @@ class BulletedListImproved(MovingCameraScene):
 
     # noinspection PyTypeChecker
     def construct(self):
-        # Title
         self.title = Text("Example Networks", color=YELLOW)
         self.title.scale(1.2)
         self.title.to_edge(UP).shift(LEFT * 0 + DOWN * 0)
 
-        # Title underline
         self.underline = Line(LEFT, RIGHT, color=YELLOW)
         self.underline.width = 1.1 * self.title.width
         self.underline.next_to(self.title, DOWN)
@@ -41,13 +39,12 @@ class BulletedListImproved(MovingCameraScene):
         self.wait(3)
 
         self.networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
-                            "Amplifiers")  # , height=5, width=5, dot_scale_factor=3.5)
+                            "Amplifiers")
         for network in self.networks:
             dot = MathTex("\\cdot").scale(3)
             dot.next_to(network[0], LEFT * 0.4, buff=0.4)
             network.add_to_back(dot)
         self.networks.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
-        # self.networks.set_color_by_tex("Antennas", WHITE)
 
         self.networks.scale(1.45)
         self.networks.next_to(self.underline, DOWN)
