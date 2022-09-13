@@ -213,7 +213,11 @@ class Amplifier(MovingCameraScene):
         def animate():
             self.play(FadeIn(self.title, shift=LEFT), GrowFromCenter(self.underline))
             self.play(Write(self.networks))
-            self.play(Write(self.ax_amp), Write(self.frequency_label), Write(self.magnitude_label))
+            self.play(
+                Write(self.ax_amp.submobjects[0]),
+                Write(self.ax_amp.submobjects[1]),
+                Write(self.frequency_label),
+                Write(self.magnitude_label))
             self.play(
                 FadeIn(self.circuit_amplifier, shift=RIGHT),
                 Write(self.port1_num),
