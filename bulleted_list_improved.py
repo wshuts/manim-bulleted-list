@@ -24,34 +24,40 @@ class BulletedListImproved(MovingCameraScene):
         self.number_plane.move_to(PAN_CAMERA_LEFT * LEFT + PAN_CAMERA_DOWN * DOWN)
 
     def construct(self):
-        self.title = Text("Example Networks", color=YELLOW)
-        self.title.scale(1.2)
-        self.title.to_edge(UP).shift(LEFT * 0 + DOWN * 0)
+        def create():
+            self.title = Text("Example Networks", color=YELLOW)
+            self.underline = Line(LEFT, RIGHT, color=YELLOW)
+            self.networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
+                                "Amplifiers")
+            for network in self.networks:
+                dot = MathTex("\\cdot").scale(3)
+                dot.next_to(network[0], LEFT * 0.4, buff=0.4)
+                network.add_to_back(dot)
 
-        self.underline = Line(LEFT, RIGHT, color=YELLOW)
-        self.underline.width = 1.1 * self.title.width
-        self.underline.next_to(self.title, DOWN)
-        self.underline.shift(UP * 0.1)
+        def stage():
+            self.title.scale(1.2)
+            self.title.to_edge(UP).shift(LEFT * 0 + DOWN * 0)
 
-        self.play(FadeIn(self.title, shift=LEFT), GrowFromCenter(self.underline))
-        self.wait(3)
+            self.underline.width = 1.1 * self.title.width
+            self.underline.next_to(self.title, DOWN)
+            self.underline.shift(UP * 0.1)
 
-        self.networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
-                            "Amplifiers")
-        for network in self.networks:
-            dot = MathTex("\\cdot").scale(3)
-            dot.next_to(network[0], LEFT * 0.4, buff=0.4)
-            network.add_to_back(dot)
-        self.networks.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
+            self.networks.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
+            self.networks.scale(1.45)
+            self.networks.next_to(self.underline, DOWN)
+            self.networks.set_opacity(0.5)
 
-        self.networks.scale(1.45)
-        self.networks.next_to(self.underline, DOWN)
-        self.networks.set_opacity(0.5)
-        self.play(Write(self.networks))
-        self.play(self.networks.submobjects[0].animate.set_opacity(1))
+        def animate():
+            self.play(FadeIn(self.title, shift=LEFT), GrowFromCenter(self.underline))
+            self.wait(3)
+            self.play(Write(self.networks))
+            self.play(self.networks.submobjects[0].animate.set_opacity(1))
+
+        create()
+        stage()
+        animate()
 
 
-with tempconfig(
-        {"quality": "high_quality", "preview": True, "disable_caching": False, "from_animation_number": 0}):
+with tempconfig({"quality": "high_quality", "preview": True, "disable_caching": False, "from_animation_number": 0}):
     scene = BulletedListImproved()
     scene.render()
