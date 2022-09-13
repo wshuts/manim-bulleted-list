@@ -14,7 +14,6 @@ class BulletedListImproved(MovingCameraScene):
         self.title = None
         self.underline = None
         self.networks = None
-        self.title_group = None
 
     def setup(self):
         MovingCameraScene.setup(self)
