@@ -214,15 +214,15 @@ class Amplifier(MovingCameraScene):
             self.play(FadeIn(self.title, shift=LEFT), GrowFromCenter(self.underline))
             self.play(Write(self.networks))
             self.play(
-                Write(self.ax_amp.submobjects[0]),
-                Write(self.ax_amp.submobjects[1]),
+                Write(self.ax_amp[0]),
+                Write(self.ax_amp[1]),
                 Write(self.frequency_label),
                 Write(self.magnitude_label))
             self.play(
                 FadeIn(self.circuit_amplifier, shift=RIGHT),
                 Write(self.port1_num),
                 Write(self.port2_num),
-                self.networks.submobjects[6].animate.set_opacity(1)
+                self.networks[6].animate.set_opacity(1)
             )
             self.play(
                 Write(self.plus),
