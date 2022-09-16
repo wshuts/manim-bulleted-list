@@ -47,8 +47,8 @@ class AnimateProCon(MovingCameraScene):
             self.networks.next_to(self.underline, DOWN)
             self.networks.set_opacity(0.5)
 
-            self.networks.submobjects[0].set_opacity(1)
-            self.add(self.title, self.underline, self.networks)
+            # self.networks.submobjects[0].set_opacity(1)
+            # self.add(self.title, self.underline, self.networks)
 
         def animate():
             self.play(FadeIn(self.title, shift=LEFT), GrowFromCenter(self.underline))
@@ -57,7 +57,7 @@ class AnimateProCon(MovingCameraScene):
 
         create()
         stage()
-        # animate()
+        animate()
 
 
 with tempconfig({"quality": "high_quality", "preview": True, "disable_caching": False, "from_animation_number": 0}):
