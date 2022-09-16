@@ -19,7 +19,7 @@ class BulletedListImproved(MovingCameraScene):
         MovingCameraScene.setup(self)
         self.frame.width = FRAME_WIDTH
         self.frame.move_to(PAN_CAMERA_LEFT * LEFT + PAN_CAMERA_DOWN * DOWN)
-        self.add(self.number_plane)
+        # self.add(self.number_plane)
         self.number_plane.width = FRAME_WIDTH
         self.number_plane.move_to(PAN_CAMERA_LEFT * LEFT + PAN_CAMERA_DOWN * DOWN)
 
@@ -49,7 +49,6 @@ class BulletedListImproved(MovingCameraScene):
 
         def animate():
             self.play(FadeIn(self.title, shift=LEFT), GrowFromCenter(self.underline))
-            self.wait(3)
             self.play(Write(self.networks))
             self.play(self.networks.submobjects[0].animate.set_opacity(1))
 
