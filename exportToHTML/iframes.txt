@@ -16,7 +16,7 @@
 
 <iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/amplifier.html" title="amplifier" width="100%" height="300"></iframe>
 
-<iframe src="" title="" width="100%" height="300"></iframe>
+<iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/animate.html" title="animate" width="100%" height="300"></iframe>
 
 <iframe src="" title="" width="100%" height="300"></iframe>
 
