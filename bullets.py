@@ -41,14 +41,14 @@ class Bullets(MovingCameraScene):
             self.underline.next_to(self.title, DOWN)
             self.underline.shift(UP * 0.1)
 
-            for network in self.networks:
-                network[0].scale(3)
-                network[0].next_to(network[1], LEFT * 0.4, buff=0.4)
-
             self.networks.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
             self.networks.scale(1.45)
             self.networks.next_to(self.underline, DOWN)
             self.networks.set_opacity(0.5)
+
+            for network in self.networks:
+                network[0].scale(3)
+                network[0].next_to(network[1], LEFT * 0.4, buff=0.4)
 
         def animate():
             self.play(FadeIn(self.title, shift=LEFT), GrowFromCenter(self.underline))
