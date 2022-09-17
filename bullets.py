@@ -30,8 +30,7 @@ class Bullets(MovingCameraScene):
             self.networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
                                 "Amplifiers")
             for network in self.networks:
-                dot = MathTex("\\cdot").scale(3)
-                dot.next_to(network[0], LEFT * 0.4, buff=0.4)
+                dot = MathTex("\\cdot")
                 network.add_to_back(dot)
 
         def stage():
@@ -41,6 +40,10 @@ class Bullets(MovingCameraScene):
             self.underline.width = 1.1 * self.title.width
             self.underline.next_to(self.title, DOWN)
             self.underline.shift(UP * 0.1)
+
+            for network in self.networks:
+                network[0].scale(3)
+                network[0].next_to(network[1], LEFT * 0.4, buff=0.4)
 
             self.networks.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
             self.networks.scale(1.45)
