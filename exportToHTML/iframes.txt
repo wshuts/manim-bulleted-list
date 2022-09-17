@@ -24,7 +24,8 @@
 
 <iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/bullets-stage-incorrectly.html" title="bullets-stage-incorrectly" width="100%" height="300"></iframe>
 
-<iframe src="" title="" width="100%" height="300"></iframe>
+<iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/bullets-stage-correctly.html" title="bullets-stage-correctly" width="100%" height="300"></iframe>
+
 <iframe src="" title="" width="100%" height="300"></iframe>
 <iframe src="" title="" width="100%" height="300"></iframe>
 <iframe src="" title="" width="100%" height="300"></iframe>
