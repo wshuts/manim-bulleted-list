@@ -26,11 +26,16 @@
 
 <iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/bullets-stage-correctly.html" title="bullets-stage-correctly" width="100%" height="300"></iframe>
 
-<iframe src="" title="" width="100%" height="300"></iframe>
-<iframe src="" title="" width="100%" height="300"></iframe>
-<iframe src="" title="" width="100%" height="300"></iframe>
-<iframe src="" title="" width="100%" height="300"></iframe>
-<iframe src="" title="" width="100%" height="300"></iframe>
+<iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/line-graphs-create.html" title="line-graphs-create" width="100%" height="300"></iframe>
+
+<iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/line-graphs-stage.html" title="line-graphs-stage" width="100%" height="300"></iframe>
+
+<iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/line-graphs-stage-incorrect.html" title="line-graphs-stage-incorrect" width="100%" height="300"></iframe>
+
+<iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/line-graphs-create-add.html" title="line-graphs-create-add" width="100%" height="300"></iframe>
+
+<iframe src="https://storage.googleapis.com/shuts-learning/manim-bulleted-list/line-graphs-animate.html" title="line-graphs-animate" width="100%" height="300"></iframe>
+
 <iframe src="" title="" width="100%" height="300"></iframe>
 <iframe src="" title="" width="100%" height="300"></iframe>
 <iframe src="" title="" width="100%" height="300"></iframe>
