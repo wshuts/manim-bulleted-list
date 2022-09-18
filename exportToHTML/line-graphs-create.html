@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>line_graphs.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #080808;}
+.s1 { color: #0033b3;}
+.s2 { color: #1750eb;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+.s5 { color: #8c8c8c; font-style: italic;}
+.ln { color: #adadad; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+line_graphs.py</font>
+</center></td></tr></table>
+<pre>
+<a name="l74"><span class="ln">74   </span></a>        <span class="s1">def </span><span class="s0">create():</span>
+<a name="l75"><span class="ln">75   </span></a>
+<a name="l76"><span class="ln">76   </span></a>            <span class="s0">self.ax_amp = Axes(</span>
+<a name="l77"><span class="ln">77   </span></a>                <span class="s0">x_range=[</span><span class="s2">13</span><span class="s0">, </span><span class="s2">18</span><span class="s0">, </span><span class="s2">1</span><span class="s0">],</span>
+<a name="l78"><span class="ln">78   </span></a>                <span class="s0">y_range=[-</span><span class="s2">40</span><span class="s0">, </span><span class="s2">20</span><span class="s0">, </span><span class="s2">10</span><span class="s0">],</span>
+<a name="l79"><span class="ln">79   </span></a>                <span class="s0">x_length=</span><span class="s2">10</span><span class="s0">,</span>
+<a name="l80"><span class="ln">80   </span></a>                <span class="s0">y_length=</span><span class="s2">6</span><span class="s0">,</span>
+<a name="l81"><span class="ln">81   </span></a>                <span class="s0">x_axis_config={</span><span class="s3">&quot;numbers_to_include&quot;</span><span class="s0">: np.arange(</span><span class="s2">14</span><span class="s0">, </span><span class="s2">19</span><span class="s0">, </span><span class="s2">1</span><span class="s0">), </span><span class="s3">&quot;label_direction&quot;</span><span class="s0">: UP},</span>
+<a name="l82"><span class="ln">82   </span></a>                <span class="s0">y_axis_config={</span><span class="s3">&quot;numbers_to_include&quot;</span><span class="s0">: np.arange(-</span><span class="s2">40</span><span class="s0">, </span><span class="s2">30</span><span class="s0">, </span><span class="s2">10</span><span class="s0">)},</span>
+<a name="l83"><span class="ln">83   </span></a>                <span class="s0">tips=</span><span class="s1">False</span><span class="s0">,</span>
+<a name="l84"><span class="ln">84   </span></a>            <span class="s0">)</span>
+<a name="l85"><span class="ln">85   </span></a>            <span class="s0">self.frequency_label = MathTex(</span><span class="s3">&quot;\mathrm{Frequency \ (GHz)}&quot;</span><span class="s0">)</span>
+<a name="l86"><span class="ln">86   </span></a>            <span class="s0">self.magnitude_label = MathTex(</span><span class="s3">&quot;\mathrm{Magnitude \ (dB)}&quot;</span><span class="s0">)</span>
+<a name="l87"><span class="ln">87   </span></a>            <span class="s0">self.graph_group = VGroup(self.ax_amp, self.frequency_label, self.magnitude_label)</span>
+<a name="l88"><span class="ln">88   </span></a>
+<a name="l89"><span class="ln">89   </span></a>            <span class="s0">self.s11_amp = read_spar(parameter=</span><span class="s3">&quot;s11&quot;</span><span class="s0">)</span>
+<a name="l90"><span class="ln">90   </span></a>            <span class="s0">self.s21_amp = read_spar(parameter=</span><span class="s3">&quot;s21&quot;</span><span class="s0">)</span>
+<a name="l91"><span class="ln">91   </span></a>            <span class="s0">self.s12_amp = read_spar(parameter=</span><span class="s3">&quot;s12&quot;</span><span class="s0">)</span>
+<a name="l92"><span class="ln">92   </span></a>            <span class="s0">self.s22_amp = read_spar(parameter=</span><span class="s3">&quot;s22&quot;</span><span class="s0">)</span>
+<a name="l93"><span class="ln">93   </span></a>
+<a name="l94"><span class="ln">94   </span></a>            <span class="s0">self.s11_amp = scale_array_column(self.s11_amp)</span>
+<a name="l95"><span class="ln">95   </span></a>            <span class="s0">self.s21_amp = scale_array_column(self.s21_amp)</span>
+<a name="l96"><span class="ln">96   </span></a>            <span class="s0">self.s12_amp = scale_array_column(self.s12_amp)</span>
+<a name="l97"><span class="ln">97   </span></a>            <span class="s0">self.s22_amp = scale_array_column(self.s22_amp)</span>
+<a name="l98"><span class="ln">98   </span></a>
+<a name="l99"><span class="ln">99   </span></a>            <span class="s0">self.s21_amp = shift_array_column(self.s21_amp, offset=-</span><span class="s2">10</span><span class="s0">)</span>
+<a name="l100"><span class="ln">100  </span></a>            <span class="s0">self.s12_amp = shift_array_column(self.s12_amp)</span>
+<a name="l101"><span class="ln">101  </span></a>
+<a name="l102"><span class="ln">102  </span></a>            <span class="s0">self.amplifier_s11 = self.ax_amp.plot_line_graph(self.s11_amp[:, </span><span class="s2">0</span><span class="s0">], self.s11_amp[:, </span><span class="s2">1</span><span class="s0">],</span>
+<a name="l103"><span class="ln">103  </span></a>                                                             <span class="s0">add_vertex_dots=</span><span class="s1">False</span><span class="s0">, line_color=Color(BLUE))</span>
+<a name="l104"><span class="ln">104  </span></a>            <span class="s0">self.amplifier_s12 = self.ax_amp.plot_line_graph(self.s12_amp[:, </span><span class="s2">0</span><span class="s0">], self.s12_amp[:, </span><span class="s2">1</span><span class="s0">],</span>
+<a name="l105"><span class="ln">105  </span></a>                                                             <span class="s0">add_vertex_dots=</span><span class="s1">False</span><span class="s0">, line_color=Color(GREEN))</span>
+<a name="l106"><span class="ln">106  </span></a>            <span class="s0">self.amplifier_s21 = self.ax_amp.plot_line_graph(self.s21_amp[:, </span><span class="s2">0</span><span class="s0">], self.s21_amp[:, </span><span class="s2">1</span><span class="s0">],</span>
+<a name="l107"><span class="ln">107  </span></a>                                                             <span class="s0">add_vertex_dots=</span><span class="s1">False</span><span class="s0">, line_color=Color(RED))</span>
+<a name="l108"><span class="ln">108  </span></a>            <span class="s0">self.amplifier_s22 = self.ax_amp.plot_line_graph(self.s22_amp[:, </span><span class="s2">0</span><span class="s0">], self.s22_amp[:, </span><span class="s2">1</span><span class="s0">],</span>
+<a name="l109"><span class="ln">109  </span></a>                                                             <span class="s0">add_vertex_dots=</span><span class="s1">False</span><span class="s0">, line_color=Color(PURPLE))</span></pre>
+</body>
+</html>
