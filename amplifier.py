@@ -75,6 +75,11 @@ class Amplifier(MovingCameraScene):
         def create():
             self.title = Text("Example Networks", color=YELLOW)
             self.underline = Line(LEFT, RIGHT, color=YELLOW)
+            self.networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
+                                "Amplifiers")
+            for network in self.networks:
+                self.dot = MathTex("\\cdot")
+                network.add_to_back(self.dot)
             self.ax_amp = Axes(
                 x_range=[13, 18, 1],
                 y_range=[-40, 20, 10],
@@ -134,24 +139,21 @@ class Amplifier(MovingCameraScene):
             self.ax_amp.add(self.amplifier_s22)
             return
 
-        def create_bulleted_list(tex_strings, under_mob):
-            for tex_string in tex_strings:
-                dot = MathTex("\\cdot")
-                dot.scale(3).next_to(tex_string[0], LEFT * 0.4, buff=0.4)
-                tex_string.add_to_back(dot)
-            tex_strings.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
-            tex_strings.scale(1.45)
-            tex_strings.next_to(under_mob, DOWN)
-            tex_strings.set_opacity(0.5)
-
         def stage():
+            def stage_bulleted_list(tex_strings, under_mob):
+                for tex_string in tex_strings:
+                    tex_string[0].scale(3)
+                    tex_string[0].next_to(tex_string[1], LEFT * 0.4, buff=0.4)
+                tex_strings.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
+                tex_strings.scale(1.45)
+                tex_strings.next_to(under_mob, DOWN)
+                tex_strings.set_opacity(0.5)
+
             self.title.scale(1.2)
             self.title.to_edge(UP)
             self.underline.width = 1.1 * self.title.width
             self.underline.next_to(self.title, DOWN)
-            self.networks = Tex("Antennas", "Dummy Loads", "Filters", "Attenuators", "Circulators", "Isolators",
-                                "Amplifiers")
-            create_bulleted_list(self.networks, self.underline)
+            stage_bulleted_list(self.networks, self.underline)
             self.title_group = VGroup(self.title, self.underline, self.networks)
             self.title_group.shift(8 * LEFT + 3.6 * UP)
 
